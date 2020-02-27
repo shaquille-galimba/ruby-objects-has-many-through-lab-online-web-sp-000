@@ -15,4 +15,12 @@ class Artist
     song = Song.new(song_name, genre)
     song.artist = self
   end
+
+  def songs
+    Song.all.select {|s| s.artist == self}
+  end
+
+  def genres
+    songs.map {|s| s.genre}
+  end
 end
